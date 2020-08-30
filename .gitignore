@@ -1,1 +1,2 @@
-dockerize_node/node_modules/*
+*.lock
+**/node_modules
