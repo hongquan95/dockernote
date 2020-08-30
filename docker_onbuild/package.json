@@ -1,5 +1,5 @@
 {
-  "name": "dockerize-node",
+  "name": "dockerize-node-onbuild",
   "version": "0.0.0",
   "private": true,
   "scripts": {
