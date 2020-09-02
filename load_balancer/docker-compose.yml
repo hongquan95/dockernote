@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "30:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    environment:
+      - DEFAULT_HOST=example.test
+  whoami_a:
+    image: jwilder/whoami
+    environment:
+      - VIRTUAL_HOST=example.test
+  whoami_b:
+    image: jwilder/whoami
+    environment:
+      - VIRTUAL_HOST=example.test
+  web_static:
+    image: web_static:v1.0
+    build:
+      context: ./web
+    ports:
+      - "50:80"
+    environment:
+      - VIRTUAL_HOST=example.test
